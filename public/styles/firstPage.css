@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,100,400');
+
+body {
+  font-family: 'monospace', sans-serif;
+  height: 100vh;
+  background: #333 no-repeat center center / cover;
+  color: #ccc;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none; 
+  color: inherit; 
+} 
+
+.bar:link  #barItem {
+  display: block;
+}
+
+.bar #barItem {
+  display: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0 3rem;
+  position: absolute;
+}
+
+h1, h2 {
+  font-weight: 200;
+  margin: 0.4rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #aaa;
+}
+
+/* Cursor */
+.txt-type > .txt {
+  border-right: 0.2rem solid #777;
+}
+
+.inner-container { width: 100%; margin: auto; }
+@media (min-width: 576px)  { .inner-container {max-width: 540px; } }   /*  FOR MOBILES  */
+@media (min-width: 768px)  { .inner-container {max-width: 720px; } }   /*  FOR TABLETS  */
+@media (min-width: 992px)  { .inner-container {max-width: 960px; } }   /*  FOR LAPTOPS  */
+@media (min-width: 1200px) { .inner-container {max-width: 1140px;} }   /*  FOR DESKTOPS */
+
+.row1 { display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; }
+

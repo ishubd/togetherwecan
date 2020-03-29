@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Record</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/firstPage.css">
+</head>
+<body>
+    <style>
+        .root{
+            border: solid;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #date{
+            text-align: center;
+            font-size: 20px;
+        }
+
+        #geo{
+            text-align: center;
+            font-size: 20px;
+        }
+
+        #survey{
+            text-align: center;
+            font-size: 30px;
+        }
+        
+    </style>
+    <h1 style="text-decoration: underline; text-align: center; padding-bottom: 30px;">Your recorded location</h1>
+    <div class="bar" onclick="toggle()"><i class="fa fa-bars fa-2x" aria-hidden="true" style="right: 20px; top: 20px; position: absolute; cursor: pointer;"></i>
+        <div id="barItem" style="right: 60px; top: 60px; position: absolute; font-size: larger; border: solid; background-color: #333;">
+          <a href="index.html"><ul style="padding-top: 10px; padding-bottom: 10px;">Home</ul></a>
+          <a href="https://forms.gle/Yymup5AJmz8GeTKw9" target="_blank"><ul style="padding-top: 10px; padding-bottom: 10px;">Help me</ul></a>
+          <a href="/recordWhereYouGo.html"><ul style="padding-top: 10px; padding-bottom: 10px;">Record where you go &emsp; &ensp;</ul></a>
+          <a href="https://www.worldometers.info/coronavirus/" target="_blank"><ul style="padding-top: 10px; padding-bottom: 10px;">Statistics</ul></a>
+          <a href="about.html"><ul style="padding-top: 10px; padding-bottom: 10px;">About</ul></a>
+        </div>
+    </div>
+    <script>
+        // Bar
+    function toggle() {
+        var x = document.getElementById("barItem");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+        }
+    }
+
+
+        getData();
+        async function getData() {
+            const response = await fetch('/api');
+            const data = await response.json();
+
+            for (item of data) {
+                const root = document.createElement('div');
+                root.setAttribute("class", "root");
+                const survey = document.createElement('div');
+                survey.setAttribute("id", "survey")
+                const geo = document.createElement('div');
+                geo.setAttribute("id", "geo");
+                const date = document.createElement('div');
+                date.setAttribute("id", "date");
+                survey.textContent = `Covid19 Symptoms? : ${item.survey}`;
+                geo.textContent = `${item.lat}°, ${item.lon}°`;
+                const dateString = new Date(item.timestamp).toLocaleString();
+                date.textContent = dateString;
+                root.append(survey, geo, date);
+                document.body.append(root);
+
+            }
+            console.log(data);
+        }
+    </script>
+</body>
+</html>

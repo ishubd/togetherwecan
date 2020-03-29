@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles/firstPage.css">
+  <title>Together we can</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<style>
+  body {
+    overflow: hidden;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <h1>keep in mind
+      <span class="txt-type" data-wait="3000" data-words='["wash your hand", "use a tissue for cough", "dispose used tissue", "avoid touching face", "maintain social distance"]'></span>
+    </h1>
+    <h2>Together We can</h2>
+  </div>
+  <div class="bar" onclick="toggle()"><i class="fa fa-bars fa-2x" aria-hidden="true" style="right: 20px; top: 20px; position: absolute; cursor: pointer;"></i>
+    <div id="barItem" style="right: 60px; top: 60px; position: absolute; font-size: larger; border: solid;">
+      <a href="index.html"><ul style="padding-top: 10px; padding-bottom: 10px;">Home</ul></a>
+      <a href="https://forms.gle/Yymup5AJmz8GeTKw9" target="_blank"><ul style="padding-top: 10px; padding-bottom: 10px;">Help me</ul></a>
+      <a href="recordWhereYouGo.html"><ul style="padding-top: 10px; padding-bottom: 10px;">Record where you go &emsp; &ensp;</ul></a>
+      <a href="https://www.worldometers.info/coronavirus/" target="_blank"><ul style="padding-top: 10px; padding-bottom: 10px;">Statistics</ul></a>
+      <a href="about.html"><ul style="padding-top: 10px; padding-bottom: 10px;">About</ul></a>
+    </div>
+  </div>
+  
+  
+  
+  <script src="js/typeEffect.js"></script>
+  <script>
+  function toggle() {
+    var x = document.getElementById("barItem");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+  }
+  </script>
+</body>
+</html>
